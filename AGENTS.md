@@ -104,8 +104,8 @@
   - `git status --short`
   - `git remote -v`
   - `git branch --show-current`
-- 当前已知事实：`/Users/yukii/Desktop/事理图谱` 和 `/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 目前都未检测到 `.git` 仓库。
-- 因此“每一步推送 git”需要先完成仓库初始化和远程配置。没有远程地址时，只能本地提交，不能声称已经 push。
+- 当前已知事实：`/Users/yukii/Desktop/事理图谱` 已初始化为本地 Git 仓库，但尚未配置 remote；`/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 目前未检测到 `.git` 仓库。
+- 因此“每一步推送 git”还需要先完成远程配置。没有远程地址时，只能本地提交，不能声称已经 push。
 - 推荐初始化策略：
   - 当前目录建独立仓库，用于事理图谱方案、原型和迁移脚本。
   - 主系统目录单独建仓库或接回已有远程仓库，用于正式产品代码。
@@ -125,7 +125,7 @@
   - `git add <changed-files>`
   - `git commit -m "<type>: <short summary>"`
   - `git push`
-- 如果 `git push` 因没有 remote 失败，立即停止推送动作，在任务记录中写明“缺少远程地址”，不要继续假装已推送。
+- 如果 `git push` 因没有 remote 失败，立即停止推送动作，在任务记录中写明“缺少远程地址”，不要继续假装已推送。当前目录首次提交为 `b164adb chore: initialize event graph workspace`，尚未 push。
 
 ### 阶段 2：回接主系统
 
