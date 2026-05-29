@@ -104,8 +104,8 @@
   - `git status --short`
   - `git remote -v`
   - `git branch --show-current`
-- 当前已知事实：`/Users/yukii/Desktop/事理图谱` 已初始化为本地 Git 仓库，`origin` 指向 `https://github.com/lostmyukii/-1.git`；`/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 目前未检测到 `.git` 仓库。
-- 因此当前目录每步 commit 后应立即 `git push`；主系统回接前仍需要单独确认主系统仓库与远程地址。
+- 当前已知事实：`/Users/yukii/Desktop/事理图谱` 已初始化为本地 Git 仓库，`origin` 指向 `https://github.com/lostmyukii/-1.git`；`/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 已初始化 Git 仓库，`origin` 指向 `https://github.com/lostmyukii/Kimi_Agent_AI-Scratch.git`，首个提交为 `4677147 chore: add safe gitignore`。
+- 因此当前目录和主系统目录每步 commit 后都应立即 `git push`；主系统业务代码回接前仍需要先完成正式代码基线入库或确认只提交增量文件的策略。
 - 推荐初始化策略：
   - 当前目录建独立仓库，用于事理图谱方案、原型和迁移脚本。
   - 主系统目录单独建仓库或接回已有远程仓库，用于正式产品代码。
