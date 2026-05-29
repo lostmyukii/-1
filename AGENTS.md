@@ -96,7 +96,7 @@
 
 ## 独立开发、回接主系统与服务器更新流程
 
-后续开发先在当前目录 `/Users/yukii/Desktop/事理图谱` 落代码和测试，验证通过后再回接到 `/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级`。不要一开始就直接改主系统，除非任务明确是“接回主系统”或“修主系统 bug”。
+默认先在当前目录 `/Users/yukii/Desktop/事理图谱` 落原型和测试，验证通过后再回接到 `/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级`。当用户明确要求“在 Kimi_Agent_AI Scratch功能升级 落代码”时，可以按本文件的回接规则直接在主系统功能分支提交增量代码。
 
 ### 阶段 0：Git 前置检查
 
@@ -105,7 +105,8 @@
   - `git remote -v`
   - `git branch --show-current`
 - 当前已知事实：`/Users/yukii/Desktop/事理图谱` 已初始化为本地 Git 仓库，`origin` 指向 `https://github.com/lostmyukii/-1.git`；`/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 已初始化 Git 仓库，`origin` 指向 `https://github.com/lostmyukii/Kimi_Agent_AI-Scratch.git`，首个提交为 `4677147 chore: add safe gitignore`。
-- 因此当前目录和主系统目录每步 commit 后都应立即 `git push`；主系统业务代码回接前仍需要先完成正式代码基线入库或确认只提交增量文件的策略。
+- 本轮采用用户确认的“主系统增量回接”策略：只提交事理图谱相关新增/修改文件，不把历史文档、数据库备份、视频产物、本地依赖和缓存整体纳入基线。
+- 因此当前目录和主系统目录每步 commit 后都应立即 `git push`；两边当前工作分支均为 `feat/event-graph-positioning`。
 - 推荐初始化策略：
   - 当前目录建独立仓库，用于事理图谱方案、原型和迁移脚本。
   - 主系统目录单独建仓库或接回已有远程仓库，用于正式产品代码。
@@ -130,6 +131,13 @@
 ### 阶段 2：回接主系统
 
 - 只有当前目录原型通过测试并形成明确接口后，才接回主系统。
+- 第一阶段已按增量策略回接定位 API，目标接口为 `POST /api/event-graph/ideas/position`。
+- 本阶段主系统落地文件：
+  - `backend/app/schemas/event_graph.py`
+  - `backend/app/services/event_graph_planner_service.py`
+  - `backend/app/api/routes_event_graph.py`
+  - `backend/app/main.py`
+  - `backend/tests/test_event_graph_planner.py`
 - 回接目标优先顺序：
   - 后端模型/迁移：`backend/app/models/`
   - 后端服务：`backend/app/services/`
