@@ -2,7 +2,7 @@
 
 ## 项目定位
 
-本目录用于沉淀“事理图谱”方案与后续实现说明。当前目录本身是空白交付目录，设计需要结合已有课程系统资料，尤其是 `/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 中的项目库、知识点库、图谱、项目插件和教案生成链路。
+本目录用于沉淀“事理图谱”方案、原型代码与后续实现说明。设计需要结合已有课程系统资料，尤其是 `/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 中的项目库、知识点库、图谱、项目插件和教案生成链路。
 
 核心目标：
 
@@ -104,8 +104,8 @@
   - `git status --short`
   - `git remote -v`
   - `git branch --show-current`
-- 当前已知事实：`/Users/yukii/Desktop/事理图谱` 已初始化为本地 Git 仓库，但尚未配置 remote；`/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 目前未检测到 `.git` 仓库。
-- 因此“每一步推送 git”还需要先完成远程配置。没有远程地址时，只能本地提交，不能声称已经 push。
+- 当前已知事实：`/Users/yukii/Desktop/事理图谱` 已初始化为本地 Git 仓库，`origin` 指向 `https://github.com/lostmyukii/-1.git`；`/Users/yukii/Desktop/Kimi_Agent_AI Scratch功能升级` 目前未检测到 `.git` 仓库。
+- 因此当前目录每步 commit 后应立即 `git push`；主系统回接前仍需要单独确认主系统仓库与远程地址。
 - 推荐初始化策略：
   - 当前目录建独立仓库，用于事理图谱方案、原型和迁移脚本。
   - 主系统目录单独建仓库或接回已有远程仓库，用于正式产品代码。
@@ -125,7 +125,7 @@
   - `git add <changed-files>`
   - `git commit -m "<type>: <short summary>"`
   - `git push`
-- 如果 `git push` 因没有 remote 失败，立即停止推送动作，在任务记录中写明“缺少远程地址”，不要继续假装已推送。当前目录首次提交为 `b164adb chore: initialize event graph workspace`，尚未 push。
+- 如果 `git push` 因认证、权限或远程分支冲突失败，立即停止推送动作，在任务记录中写明真实阻塞原因，不要继续假装已推送。当前目录首次提交为 `b164adb chore: initialize event graph workspace`，远程为 `origin/main`。
 
 ### 阶段 2：回接主系统
 
